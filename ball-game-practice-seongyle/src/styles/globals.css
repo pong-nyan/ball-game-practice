@@ -19,3 +19,10 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
+#game {
+  border: 1px solid #000;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
