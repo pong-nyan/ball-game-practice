@@ -6,10 +6,12 @@ export default class Ball {
     vy: number;
     x: number;
     y: number;
-    constructor(stageWidth: number, stageHeight: number, radius: number, speed: number) {
+    acceleration : number;
+    constructor(stageWidth: number, stageHeight: number, radius: number, speed: number, acceleration : number = 1.005) {
         this.radius = radius;
         this.vx = speed;
         this.vy = speed;
+        this.acceleration  = acceleration ;
 
         const diameter = this.radius * 2;
         this.x = diameter + (Math.random() * stageWidth - diameter);
@@ -17,13 +19,23 @@ export default class Ball {
     }
 
     draw(ctx: CanvasRenderingContext2D, stageWidth: number, stageHeight: number, block: Block) {
+        const maxSpeed = 42;
+        if (Math.abs(this.vx) < maxSpeed || Math.abs(this.vy) < maxSpeed) {
+            this.vx *= this.acceleration ;
+            this.vy *= this.acceleration ;
+        }
         this.x += this.vx;
         this.y += this.vy;
 
         this.bounceWindow(stageWidth, stageHeight);
         this.bounceBlock(block);
 
-        ctx.fillStyle = "#fdd700";
+        if (Math.abs(this.vx) < 12)
+            ctx.fillStyle = "#fdd700";
+        else if (Math.abs(this.vx) < 20)
+            ctx.fillStyle = "#ff9800";
+        else
+            ctx.fillStyle = "#ff5722";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         ctx.fill();
