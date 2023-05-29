@@ -17,8 +17,8 @@ export default class Block {
     }
 
     draw(ctx: CanvasRenderingContext2D) {
-        const xGap = 80;
-        const yGap = 60;
+        const xGap = 30;
+        const yGap = 20;
 
         ctx.fillStyle = this.color;
         ctx.beginPath();
