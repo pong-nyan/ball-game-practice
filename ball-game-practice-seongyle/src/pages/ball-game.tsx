@@ -22,7 +22,7 @@ export default function BallGame() {
         canvasRef.current.height = window.innerHeight * resolution;
         canvasRef.current.width = window.innerWidth * resolution;
         ctx.scale(resolution, resolution);
-        ball.current = new Ball(stageRef.current.width, stageRef.current.height, stageRef.current.width * 0.04, 5);
+        ball.current = new Ball(stageRef.current.width, stageRef.current.height, stageRef.current.height * 0.04, 5);
         blocks.current = new Block(stageRef.current.width * 0.4, 30, stageRef.current.width * 0.2, stageRef.current.height - stageRef.current.height * 0.5, "#424242");
     };
 
