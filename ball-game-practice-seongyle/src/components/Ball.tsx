@@ -17,7 +17,6 @@ export default class Ball {
     }
 
     draw(ctx: CanvasRenderingContext2D, stageWidth: number, stageHeight: number, block: Block) {
-        console.log(`x: ${block.x}, y:${block.y}, maxX: ${block.maxX}, maxY: ${block.maxY}`);
         this.x += this.vx;
         this.y += this.vy;
 

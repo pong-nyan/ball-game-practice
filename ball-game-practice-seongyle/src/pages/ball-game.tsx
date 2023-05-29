@@ -53,7 +53,6 @@ export default function BallGame() {
         if (!ball.current) return;
         if (!blocks.current) return;
         blocks.current.draw(ctx);
-        console.log(blocks.current);
         ball.current.draw(ctx, stageRef.current.width, stageRef.current.height, blocks.current);
     };
 
