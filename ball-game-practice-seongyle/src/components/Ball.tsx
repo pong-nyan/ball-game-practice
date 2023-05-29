@@ -17,6 +17,7 @@ export default class Ball {
     }
 
     draw(ctx: CanvasRenderingContext2D, stageWidth: number, stageHeight: number, block: Block) {
+        console.log(`x: ${block.x}, y:${block.y}, maxX: ${block.maxX}, maxY: ${block.maxY}`);
         this.x += this.vx;
         this.y += this.vy;
 
@@ -46,10 +47,10 @@ export default class Ball {
 
     bounceBlock(block: Block) {
         if (!block) return;
-        const minX = this.radius;
-        const maxX = block.maxX;
-        const minY = this.radius;
-        const maxY = block.maxY;
+        const minX = block.x - this.radius;
+        const maxX = block.maxX + this.radius;
+        const minY = block.y - this.radius;
+        const maxY = block.maxY + this.radius;
 
         if (this.x > minX && this.x < maxX && this.y > minY && this.y < maxY) {
             const x1 = Math.abs(minX - this.x);
