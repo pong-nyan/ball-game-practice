@@ -7,7 +7,7 @@ export default class Ball {
     x: number;
     y: number;
     acceleration : number;
-    constructor(stageWidth: number, stageHeight: number, radius: number, speed: number, acceleration : number = 1.005) {
+    constructor(stageWidth: number, stageHeight: number, radius: number, speed: number, acceleration : number = 0.5) {
         this.radius = radius;
         this.vx = speed;
         this.vy = speed;
@@ -21,8 +21,7 @@ export default class Ball {
     draw(ctx: CanvasRenderingContext2D, stageWidth: number, stageHeight: number, block: Block) {
         const maxSpeed = 42;
         if (Math.abs(this.vx) < maxSpeed || Math.abs(this.vy) < maxSpeed) {
-            this.vx *= this.acceleration ;
-            this.vy *= this.acceleration ;
+            this.vy += this.acceleration ;
         }
         this.x += this.vx;
         this.y += this.vy;
