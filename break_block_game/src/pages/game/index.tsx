@@ -21,6 +21,6 @@ export default function Game(): JSX.Element {
 		case GameStatus.End:
 			return (<End setGameStatus={setGameStatus} />);
 		default:
-			return ( <h1>ERROR!</h1> );
+			return (<h1>ERROR!</h1>);
 	}
 }
